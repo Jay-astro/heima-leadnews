@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.heima.wemedia.mapper.WmNewsMaterialMapper">
+    <!--
+      collection: 需要遍历的元素
+      item: 每个元素的别名
+      separator: 分隔符
+    -->
+    <insert id="saveNewsMaterials">
+        INSERT INTO wm_news_material(material_id,news_id,TYPE) VALUES
+        <foreach collection="materialIds" item="materialId" separator=",">
+            (#{materialId},#{newsId},#{type})
+        </foreach>
+    </insert>
+</mapper>

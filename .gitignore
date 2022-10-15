@@ -1,0 +1,12 @@
+# Project exclude paths
+/heima-leadnews-api/target/
+/heima-leadnews-common/target/
+/heima-leadnews-gateway/heima-leadnews-app-gateway/target/
+/heima-leadnews-gateway/heima-leadnews-wemedia-gateway/target/
+/heima-leadnews-model/target/
+/heima-leadnews-service/heima-leadnews-article/target/
+/heima-leadnews-service/heima-leadnews-schedule/target/
+/heima-leadnews-service/heima-leadnews-search/target/
+/heima-leadnews-service/heima-leadnews-user/target/
+/heima-leadnews-service/heima-leadnews-wemedia/target/
+/heima-leadnews-utils/target/

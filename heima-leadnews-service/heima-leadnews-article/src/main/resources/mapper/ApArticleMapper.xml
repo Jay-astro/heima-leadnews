@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.heima.article.mapper.ApArticleMapper">
+    <select id="loadApArticle" resultType="com.heima.model.user.pojos.ApArticle">
+        SELECT
+        aa.*
+        FROM
+        ap_article aa
+        INNER JOIN ap_article_config ac
+        ON ac.`article_id` = aa.`id`
+        <where>
+            <if test="dto.tag!='__all__'">
+                aa.`channel_id` = #{dto.tag}
+            </if>
+            <if test="type==1">
+                AND aa.`publish_time` &lt; #{dto.minBehotTime}
+            </if>
+            <if test="type==2">
+                AND aa.`publish_time` &gt; #{dto.maxBehotTime}
+            </if>
+            AND ac.`is_delete` = 0
+            AND ac.`is_down` = 0
+        </where>
+        ORDER BY
+        aa.`publish_time` DESC
+        limit
+        #{dto.size}
+    </select>
+</mapper>
+
